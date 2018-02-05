@@ -1,0 +1,22 @@
+set(nsga2_SOURCES
+        allocate.c
+        auxiliary.c
+        crossover.c
+        crowddist.c
+        decode.c
+        display.c
+        dominance.c
+        eval.c
+        fillnds.c
+        initialize.c
+        list.c
+        merge.c
+        mutation.c
+        nsga2.c
+        problemdef.c
+        rand.c
+        rank.c
+        report.c
+        sort.c
+        tourselect.c)
+add_library(nsga2 SHARED ${nsga2_SOURCES})

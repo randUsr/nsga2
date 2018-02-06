@@ -88,6 +88,7 @@ extern population *child_pop;
 extern population *mixed_pop;
 
 
+
 /**
  *  allocate.c
  */
@@ -135,7 +136,8 @@ void mutation_ind (NSGA2Type *nsga2Params, individual *ind);
 void bin_mutate_ind (NSGA2Type *nsga2Params, individual *ind);
 void real_mutate_ind (NSGA2Type *nsga2Params, individual *ind);
 
-void test_problem (double *xreal, double *xbin, int **gene, double *obj, double *constr);
+void (*test_problem)(double *, double *, int **, double *, double *);
+void set_test_problem(void (*f)(double*, double*, int**, double*, double*));
 
 void assign_rank_and_crowding_distance (NSGA2Type *nsga2Params, population *new_pop);
 

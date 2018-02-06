@@ -281,7 +281,7 @@ NSGA2Type ReadParameters(int argc, char **argv){
 
 
 
-void InitNSGA2(NSGA2Type *nsga2Params, void *inp, void *out)
+void InitNSGA2(NSGA2Type *nsga2Params)
 {
     int i;
     
@@ -359,7 +359,7 @@ void InitNSGA2(NSGA2Type *nsga2Params, void *inp, void *out)
     initialize_pop (nsga2Params,  parent_pop);
     printf("\n Initialization done, now performing first generation");
     decode_pop(nsga2Params, parent_pop);
-    evaluate_pop (nsga2Params, parent_pop, inp, out);
+    evaluate_pop (nsga2Params, parent_pop);
     assign_rank_and_crowding_distance (nsga2Params, parent_pop);
     report_pop (nsga2Params, parent_pop, fpt1);
     fprintf(fpt4,"# gen = 1\n");
@@ -378,7 +378,7 @@ void InitNSGA2(NSGA2Type *nsga2Params, void *inp, void *out)
 
 
 
-int NSGA2(NSGA2Type *nsga2Params, void *inp, void *out)
+int NSGA2(NSGA2Type *nsga2Params)
 {
     int i;
     
@@ -387,7 +387,7 @@ int NSGA2(NSGA2Type *nsga2Params, void *inp, void *out)
         selection (nsga2Params,  parent_pop, child_pop);
         mutation_pop (nsga2Params,  child_pop);
         decode_pop(nsga2Params,  child_pop);
-        evaluate_pop(nsga2Params,  child_pop, inp, out);
+        evaluate_pop(nsga2Params,  child_pop);
         merge (nsga2Params,  parent_pop, child_pop, mixed_pop);
         fill_nondominated_sort (nsga2Params,  mixed_pop, parent_pop);
         /* Comment following four lines if information for all
